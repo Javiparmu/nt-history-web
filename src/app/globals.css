@@ -3,25 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --hover-color: 0, 255, 255, 0.1;
+  --background-color: #0d0c18;
+  --color: #eaeaea;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-color: 0, 0, 0;
   }
 }
 
+@font-face {
+  font-family: 'n27regular';
+  src: url('/assets/fonts/n27regular/n27-regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/n27regular/n27-regular-webfont.woff2') format('woff2'),
+    url('/assets/fonts/n27regular/n27-regular-webfont.woff') format('woff'),
+    url('/assets/fonts/n27regular/n27-regular-webfont.ttf') format('truetype');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'n27regular';
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'n27', sans-serif;
+  color: var(--color);
+  background: var(--background-color);
 }
