@@ -2,7 +2,7 @@ import Link from '@/components/Link'
 import Image from 'next/image'
 import React, { PropsWithChildren, } from 'react'
 
-const layout = ({children,}: PropsWithChildren) => {
+const RunLayout = ({children,}: PropsWithChildren) => {
   return (
     <>
       <Link href="/" className='flex items-end justify-start gap-4 my-5'>
@@ -16,4 +16,4 @@ const layout = ({children,}: PropsWithChildren) => {
   )
 }
 
-export default layout
+export default RunLayout

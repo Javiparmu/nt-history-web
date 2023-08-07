@@ -1,5 +1,5 @@
 import { Game, } from '@/interfaces/GameInterfaces'
-import React, { useTransition, } from 'react'
+import React from 'react'
 import GameCard from './GameCard'
 import { getGridCols, searchGames, } from '@/utils/helpers'
 import EmptyGameList from './EmptyGameList'

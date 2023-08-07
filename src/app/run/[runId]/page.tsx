@@ -1,4 +1,5 @@
 import { Game, } from '@/interfaces/GameInterfaces'
+import { NoData, } from '@/utils/enums'
 import Image from 'next/image'
 import React from 'react'
 
@@ -8,7 +9,7 @@ interface PageProps {
     }
 }
 
-export default async function page({params,}: PageProps) {
+export default async function RunPage({params,}: PageProps) {
   const runId = params?.runId ?? ''
 
   const response = await fetch(`${process.env.GCLOUD_URL}/nuclear/run?id=${runId}`, {
@@ -47,7 +48,7 @@ export default async function page({params,}: PageProps) {
         <div className='flex flex-col items-center justify-center gap-5'>
           <h3 style={{ viewTransitionName: `run-${run.runId}-weaponB-title`,}} className='text-center text-xl md:text-2xl font-semibold'>Weapon B</h3>
           <div className='w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex justify-center items-start'>
-            {run.weaponB !== 'Nothing' 
+            {run.weaponB !== NoData.Nothing
               ? <Image style={{ viewTransitionName: `run-${run.runId}-weaponB`,}} className='rounded-md' src={`/images/weapons/${run.weaponB}.png`} width={100} height={100} alt="weapon B" />
               : <div style={{ viewTransitionName: `no-image-${run.runId}-weaponB`,}} className='w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex justify-center items-center bg-gray-500 rounded-md' />
             }
@@ -75,7 +76,7 @@ export default async function page({params,}: PageProps) {
         <div className='flex flex-col items-center justify-center gap-5'>
           <h3 style={{ viewTransitionName: `run-${run.runId}-mutation-ultra-title`,}} className='text-center text-xl md:text-2xl font-semibold'>Ultra mutation</h3>
           <div className='w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex justify-center'>
-            {run.ultraMutation !== 'None'
+            {run.ultraMutation !== NoData.None
               ? <Image style={{ viewTransitionName: `run-${run.runId}-mutation-ultra`,}} className='rounded-md' src={`/images/mutations/ultra/${run.ultraMutation}.webp`} alt={run.ultraMutation} width={100} height={100}/>
               : <div style={{ viewTransitionName: `no-image-${run.runId}-mutation-ultra`,}} className='w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex justify-center items-center bg-gray-500 rounded-md' />
             }

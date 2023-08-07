@@ -6,6 +6,7 @@ import CardImageContainer from './cardImage/CardImageContainer'
 import NoImage from './cardImage/NoImage'
 import Text from '@/components/ui/Text'
 import Link from '@/components/Link'
+import { NoData, } from '@/utils/enums'
 
 interface GameCardProps {
   game: Game
@@ -31,7 +32,7 @@ const GameCard = ({game,}: GameCardProps) => {
         <GameCardImage style={{ viewTransitionName: `run-${game.runId}-killedBy`,}} textStyle={{ viewTransitionName: `run-${game.runId}-killedBy-title`,}} text="Killed by" image={`/images/enemies/${game.lastHit}.gif`} isCard />
         <GameCardImage style={{ viewTransitionName: `run-${game.runId}-weaponA`,}} textStyle={{ viewTransitionName: `run-${game.runId}-weaponA-title`,}} text="Weapon A" image={`/images/weapons/${game.weaponA}.png`} isCard />
         <CardImageContainer style={{ viewTransitionName: `run-${game.runId}-weaponB-title`,}} text="Weapon B">
-          {game.weaponB === 'Nothing'
+          {game.weaponB === NoData.Nothing
             ? <NoImage style={{ viewTransitionName: `no-image-${game.runId}-weaponB`,}} />
             : (<div className='w-12 md:w-14 lg:w-16 xl:w-18 h-12 md:h-14 lg:h-16 xl:h-18 flex items-center'>
               <Image style={{ viewTransitionName: `run-${game.runId}-weaponB`,}} className='rounded-md' src={`/images/weapons/${game.weaponB}.png`} alt="weapon B" width={80} height={80}/>
@@ -40,7 +41,7 @@ const GameCard = ({game,}: GameCardProps) => {
         </CardImageContainer>
         <CardImageContainer style={{ viewTransitionName: `run-${game.runId}-mutations-title`,}} text="Mutations">
           <div className='flex items-center gap-1'>
-            <div className='w-12 md:w-14 lg:w-16 xl:w-18 h-12 md:h-14 lg:h-16 xl:h-18 xl:h-18 flex items-center justify-center gap-1'>
+            <div className='w-12 md:w-14 lg:w-16 xl:w-18 h-12 md:h-14 lg:h-16 xl:h-18 flex items-center justify-center gap-1'>
               {game.mutations.length > 0
                 ? game.mutations.map((mutation: string, index: number) => {
                   return (
@@ -54,7 +55,7 @@ const GameCard = ({game,}: GameCardProps) => {
         </CardImageContainer>
         <CardImageContainer style={{ viewTransitionName: `run-${game.runId}-mutation-ultra-title`,}} text="Ultra mutation">
           <div className='flex gap-1'>
-            {game.ultraMutation !== 'None'
+            {game.ultraMutation !== NoData.None
               ? <Image style={{ viewTransitionName: `run-${game.runId}-mutation-ultra`,}} className='rounded-md' src={`/images/mutations/ultra/${game.ultraMutation}.webp`} alt={game.ultraMutation} width={30} height={30}/>
               : <NoImage style={{ viewTransitionName: `no-image-${game.runId}-mutation-ultra`,}} />
             }
