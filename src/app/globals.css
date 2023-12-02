@@ -9,13 +9,6 @@
   --color: #eaeaea;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-color: 0, 0, 0;
-  }
-}
-
 @font-face {
   font-family: 'n27regular';
   src: url('/assets/fonts/n27regular/n27-regular-webfont.eot?#iefix')
@@ -35,5 +28,5 @@
 body {
   font-family: 'n27', sans-serif;
   color: var(--color);
-  background: var(--background-color);
+  background-color: var(--background-color);
 }

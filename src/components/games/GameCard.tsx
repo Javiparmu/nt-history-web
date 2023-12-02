@@ -9,14 +9,15 @@ import Link from '@/components/Link'
 import { NoData, } from '@/utils/enums'
 
 interface GameCardProps {
-  game: Game
+  game: Game,
+  steamId: string,
 }
 
-const GameCard = ({game,}: GameCardProps) => {
+const GameCard = ({game, steamId,}: GameCardProps) => {
   const timestamp = new Date(game.timestamp).toLocaleDateString()
 
   return (
-    <Link href={`/run/${game.runId}`} className={`flex flex-col lg:flex-row w-full items-center justify-between bg-gray-700 border-4
+    <Link href={`/run/${game.runId}?steamId=${steamId}`} className={`flex flex-col lg:flex-row w-full items-center justify-between bg-gray-700 border-4
     ${game.win ? 'border-lime-600 hover:border-lime-500' : 'border-red-600 hover:border-red-500'} rounded-md p-2 md:p-3 xl:p-5 
     gap-10 lg:gap-0 2xl:gap-40 cursor-pointer hover:scale-[1.005] transition-transform`} key={game.runId}>
       <div className='flex flex-col sm:flex-row items-center gap-5 lg:gap-10'>

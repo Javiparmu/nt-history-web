@@ -21,7 +21,7 @@ const GameList = async ({ steamId, }: GameListProps) => {
         ? <div className={style}>
           {gameList.map((game: Game) => {
             return (
-              <GameCard game={game} key={game.runId} />
+              <GameCard game={game} steamId={steamId} key={game.runId}  />
             )
           })}
         </div>
