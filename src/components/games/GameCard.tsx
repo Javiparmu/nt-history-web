@@ -21,7 +21,7 @@ const GameCard = ({game, steamId,}: GameCardProps) => {
     ${game.win ? 'border-lime-600 hover:border-lime-500' : 'border-red-600 hover:border-red-500'} rounded-md p-2 md:p-3 xl:p-5 
     gap-10 lg:gap-0 2xl:gap-40 cursor-pointer hover:scale-[1.005] transition-transform`} key={game.runId}>
       <div className='flex flex-col sm:flex-row items-center gap-5 lg:gap-10'>
-        <img style={{ viewTransitionName: `run-${game.runId}-character`,}} className='w-12 md:w-14 lg:w-16 xl:w-18 xl:h-18' src={`/images/characters/${game.character}.png`} alt="character" />
+        <img style={{ viewTransitionName: `run-${game.runId}-character`,}} className='w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18' src={`/images/characters/${game.character}.png`} alt="character" />
         <div style={{ viewTransitionName: `run-${game.runId}-title`,}}>
           <Text className='text-center font-semibold'>{game.character}</Text>
           <Text className='text-center font-300'>{game.type}</Text>
@@ -41,12 +41,12 @@ const GameCard = ({game, steamId,}: GameCardProps) => {
           }
         </CardImageContainer>
         <CardImageContainer style={{ viewTransitionName: `run-${game.runId}-mutations-title`,}} text="Mutations">
-          <div className='flex items-center gap-1'>
-            <div className='w-12 md:w-14 lg:w-16 xl:w-18 h-12 md:h-14 lg:h-16 xl:h-18 flex items-center justify-center gap-1'>
+          <div className='flex items-center gap-1 flex-wrap'>
+            <div className='h-12 md:h-14 lg:h-16 xl:h-18 flex items-center justify-center gap-1 flex-wrap'>
               {game.mutations.length > 0
                 ? game.mutations.map((mutation: string, index: number) => {
                   return (
-                    <img style={{ viewTransitionName: `run-${game.runId}-mutation-${mutation}`,}} key={mutation + index} alt={mutation} className='w-2md:w-3 lg:w-5' src={`/images/mutations/${mutation}.webp`} />
+                    <img style={{ viewTransitionName: `run-${game.runId}-mutation-${mutation}`,}} key={mutation + index} alt={mutation} className='w-4 lg:w-5' src={`/images/mutations/${mutation}.webp`} />
                   )
                 })
                 : <NoImage style={{ viewTransitionName: `no-image-${game.runId}-mutation`,}} />
