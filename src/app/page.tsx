@@ -10,7 +10,7 @@ interface HomeProps {
     }
 }
 
-export default function Home({params, searchParams,}: HomeProps) {
+export default function Home({searchParams,}: HomeProps) {
   const steamId = searchParams?.steamId ?? ''
 
   return (
@@ -18,7 +18,7 @@ export default function Home({params, searchParams,}: HomeProps) {
       <MainHeader />
       <SaveRun />
       <SearchBar />
-      <GameList steamId={steamId} />
+      {steamId !== '' &&  <GameList steamId={steamId} />}
     </div>
   )
 }

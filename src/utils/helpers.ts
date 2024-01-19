@@ -1,7 +1,7 @@
 import { Game, } from '@/interfaces/GameInterfaces'
 
 export const searchGames = async (steamId: string): Promise<Game[]> => {
-  if (steamId === '') [] as Game[]
+  if (steamId === '') return [] as Game[]
 
   const response = await fetch(`${process.env.GCLOUD_URL}/nuclear/runs?steamId=${steamId}`, {
     method: 'GET',
@@ -10,8 +10,12 @@ export const searchGames = async (steamId: string): Promise<Game[]> => {
     },
     redirect: 'follow',
   })
-    
-  return response.json()
+
+  if (response.ok) {
+    return response.json()
+  }
+
+  return [] as Game[]
 }
 
 export const getGridCols = (gamesLength: number): { gridCols: string, mdGridCols: string} => {
@@ -25,8 +29,9 @@ export const getGridCols = (gamesLength: number): { gridCols: string, mdGridCols
   }
 }
 
-export const saveLastRun = async (steamId: string, steamKey:string): Promise<void> => {
+export const saveLastRun = async (steamId: string, steamKey: string): Promise<void> => {
   try {
+    if (steamId === '' || steamKey === '') return
     await fetch(`${process.env.NEXT_PUBLIC_GCLOUD_URL}/api/save-last-run?steamId=${steamId}&key=${steamKey}`, {
       method: 'GET',
       headers: {
