@@ -6,7 +6,7 @@ interface NoImageProps {
 
 const NoImage = ({style,}: NoImageProps) => {
   return (
-    <div style={style} className='w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 bg-gray-500 rounded-md'/>
+    <div style={style} className='w-full h-full bg-gray-500 rounded-md'/>
   )
 }
 

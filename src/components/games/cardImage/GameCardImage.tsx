@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import React from 'react'
 import CardImageContainer from './CardImageContainer'
 import { cardImageSize, runImageSize, } from '@/utils/constants'
+import { CSSProperties, } from 'react'
 
 interface GameCardImageProps {
     text: string
     image: string
-    style?: React.CSSProperties
-    textStyle?: React.CSSProperties
+    style?: CSSProperties
+    textStyle?: CSSProperties
     isCard?: boolean
 }
 

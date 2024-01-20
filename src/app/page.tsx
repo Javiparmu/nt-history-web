@@ -18,7 +18,7 @@ export default function Home({searchParams,}: HomeProps) {
       <MainHeader />
       <SaveRun />
       <SearchBar />
-      {steamId !== '' &&  <GameList steamId={steamId} />}
+      <GameList steamId={steamId} />
     </div>
   )
 }
