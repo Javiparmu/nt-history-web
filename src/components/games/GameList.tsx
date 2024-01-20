@@ -15,6 +15,7 @@ const GameList = async ({ steamId, }: GameListProps) => {
 
   if (isEmpty(steamId)) {
     gameList = gamesDataExample
+    steamId = 'example-steam-id'
   } else { 
     gameList = await searchGames(steamId)
   }

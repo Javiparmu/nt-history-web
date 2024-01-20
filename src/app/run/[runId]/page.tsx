@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import { gamesDataExample, } from '@/data/gamesDataExample'
 import { Game, } from '@/interfaces/GameInterfaces'
 import { NoData, } from '@/utils/enums'
 import Image from 'next/image'
@@ -17,19 +18,35 @@ export default async function RunPage({params, searchParams,}: PageProps) {
   const runId = params?.runId ?? ''
   const steamId = searchParams?.steamId ?? ''
 
-  const response = await fetch(`${process.env.GCLOUD_URL}/nuclear/run?id=${runId}`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Basic ${process.env.AUTHORIZATION_TOKEN}`,
-    },
-    redirect: 'follow',
-  })
+  let run: Game
+  const isExample = steamId === 'example-steam-id'
 
-  const run: Game = await response.json()
+  if (isExample) {
+    run = gamesDataExample.find((game: Game) => game.runId === runId) ?? {} as Game
+  } else {
+    const response = await fetch(`${process.env.GCLOUD_URL}/nuclear/run?id=${runId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Basic ${process.env.AUTHORIZATION_TOKEN}`,
+      },
+      redirect: 'follow',
+    })
+
+    if (!response.ok) {
+      return (
+        <div className='flex flex-col items-center justify-center w-full h-screen'>
+          <h1 className='text-2xl font-semibold'>Error: {response.status}</h1>
+          <p className='text-xl font-300'>The run you are looking for does not exist.</p>
+        </div>
+      )
+    }
+
+    run = await response.json()
+  }
 
   return (
     <>
-      <Link href={`/?steamId=${steamId}`} className='flex items-end justify-start gap-4 my-5'>
+      <Link href={isExample ? '/' : `/?steamId=${steamId}`} className='flex items-end justify-start gap-4 my-5'>
         <Image style={{ viewTransitionName: 'logo',}} alt="header-logo" className='' src='/logo.webp' width={40} height={40} />
         <h1 style={{ viewTransitionName: 'title',}} className='font-bold text-xl md:text-3xl relative top-[0.55rem]'>
           NTHistory
