@@ -26,7 +26,7 @@ export const gamesDataExample: Game[] = [
     health: 2,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1701253148,
+    timestamp: 1701253148000,
   },
   {
     runId: '4848',
@@ -54,7 +54,7 @@ export const gamesDataExample: Game[] = [
     health: 9,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1684912296,
+    timestamp: 1684912296000,
   },
   {
     runId: '7548',
@@ -79,7 +79,7 @@ export const gamesDataExample: Game[] = [
     health: 12,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1673283103,
+    timestamp: 1673283103000,
   },
   {
     runId: '8582',
@@ -107,7 +107,7 @@ export const gamesDataExample: Game[] = [
     health: 10,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1696317089,
+    timestamp: 1696317089000,
   },
   {
     runId: '4813',
@@ -133,7 +133,7 @@ export const gamesDataExample: Game[] = [
     health: 8,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1699675721,
+    timestamp: 1699675721000,
   },
   {
     runId: '5680',
@@ -160,7 +160,7 @@ export const gamesDataExample: Game[] = [
     health: 6,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1700961979,
+    timestamp: 1700961979000,
   },
   {
     runId: '9027',
@@ -186,7 +186,7 @@ export const gamesDataExample: Game[] = [
     health: 7,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1674392870,
+    timestamp: 1674392870000,
   },
   {
     runId: '2072',
@@ -213,7 +213,7 @@ export const gamesDataExample: Game[] = [
     health: 4,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1689975587,
+    timestamp: 1689975587000,
   },
   {
     runId: '1311',
@@ -238,7 +238,7 @@ export const gamesDataExample: Game[] = [
     health: 9,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1683653231,
+    timestamp: 1683653231000,
   },
   {
     runId: '5599',
@@ -264,6 +264,6 @@ export const gamesDataExample: Game[] = [
     health: 4,
     steamId: 'example-steam-id',
     type: 'NT',
-    timestamp: 1679498102,
+    timestamp: 1679498102000,
   },
 ]
