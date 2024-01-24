@@ -17,10 +17,10 @@ const GameCard = ({game, steamId,}: GameCardProps) => {
   const timestamp = new Date(game.timestamp).toLocaleDateString()
 
   return (
-    <Link href={`/run/${game.runId}?steamId=${steamId}`} className={`flex flex-col lg:flex-row w-full items-center justify-between bg-gray-700 border-4
+    <Link href={`/run/${game.runId}?steamId=${steamId}`} className={`flex flex-col lg:flex-row w-full h-[500px] lg:h-40 items-center justify-between bg-gray-700 border-4
     ${game.win ? 'border-lime-600 hover:border-lime-500' : 'border-red-700 hover:border-red-600'} rounded-md p-2 md:p-3 xl:p-5 
     gap-10 lg:gap-0 2xl:gap-40 cursor-pointer hover:scale-[1.005] transition-transform`} key={game.runId}>
-      <div className='flex flex-col sm:flex-row items-center gap-5 lg:gap-10'>
+      <div className='flex flex-row items-center gap-5 lg:gap-10'>
         <img style={{ viewTransitionName: `run-${game.runId}-character`,}} className='w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18' src={`/images/characters/${game.character}.png`} alt="character" />
         <div style={{ viewTransitionName: `run-${game.runId}-title`,}}>
           <Text className='text-center font-semibold'>{game.character}</Text>
@@ -28,8 +28,8 @@ const GameCard = ({game, steamId,}: GameCardProps) => {
         </div>
         <img style={{ viewTransitionName: `run-${game.runId}-crown`,}} className='h-6 md:h-8 lg:h-10 xl:h-12' src={`/images/crowns/${game.crown}.png`} alt="crown" />
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 w-full items-center justify-between gap-2 lg:gap-0 lg:ml-20 2xl:ml-0'>
-        <GameCardImage style={{ viewTransitionName: `run-${game.runId}-world`,}} textStyle={{ viewTransitionName: `run-${game.runId}-world-title`,}} text={game.world + ' ' + game.worldLevel + ' L' + game.loops} image={`/images/areas/${game.world}.webp`} isCard />
+      <div className='grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-7 w-full items-center justify-between md:gap-2 lg:gap-0 lg:ml-20 2xl:ml-0'>
+        <GameCardImage style={{ viewTransitionName: `run-${game.runId}-world`, }} textStyle={{ viewTransitionName: `run-${game.runId}-world-title`,}} text={game.world + ' ' + game.worldLevel + ' L' + game.loops} image={`/images/areas/${game.world}.webp`} isCard />
         <GameCardImage style={{ viewTransitionName: `run-${game.runId}-killedBy`,}} textStyle={{ viewTransitionName: `run-${game.runId}-killedBy-title`,}} text="Killed by" image={`/images/enemies/${game.lastHit}.gif`} isCard />
         <GameCardImage style={{ viewTransitionName: `run-${game.runId}-weaponA`,}} textStyle={{ viewTransitionName: `run-${game.runId}-weaponA-title`,}} text="Weapon A" image={`/images/weapons/${game.weaponA}.png`} isCard />
         <CardImageContainer style={{ viewTransitionName: `run-${game.runId}-weaponB-title`,}} text="Weapon B">

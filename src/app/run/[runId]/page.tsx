@@ -56,8 +56,8 @@ export default async function RunPage({params, searchParams,}: PageProps) {
         <header className='flex items-center justify-center gap-10 lg:gap-20'>
           <img style={{ viewTransitionName: `run-${run.runId}-character`,}} className='w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 xl:w-22 xl:h-22' src={`/images/characters/${run.character}.png`} alt="character" />
           <div style={{ viewTransitionName: `run-${run.runId}-title`,}} className='flex flex-col justify-center items-center'>
-            <h1 className='text-center text-xl md:text-xl md:text-2xl font-semibold'>{run.character}</h1>
-            <h2 className='text-center text-xl md:text-xl md:text-2xl font-300'>{run.type}</h2>
+            <h1 className='text-center text-xl md:text-2xl font-semibold'>{run.character}</h1>
+            <h2 className='text-center text-xl md:text-2xl font-300'>{run.type}</h2>
           </div>
           <img style={{ viewTransitionName: `run-${run.runId}-crown`,}} className='h-8 md:h-10 lg:h-12 xl:h-14' src={`/images/crowns/${run.crown}.png`} alt="crown" />
         </header>

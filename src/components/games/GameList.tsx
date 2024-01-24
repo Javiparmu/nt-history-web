@@ -22,13 +22,13 @@ const GameList = async ({ steamId, }: GameListProps) => {
     gameList = await searchGames(steamId)
   }
 
-  const { gridCols, mdGridCols, } = getGridCols(gameList.length)
+  const { smGridCols, mdGridCols, } = getGridCols(gameList.length)
 
-  const style = `grid ${gridCols} md:${mdGridCols} lg:grid-cols-1 w-full items-center justify-items-center gap-5 mb-20`
+  const style = `grid grid-cols-1 sm:${smGridCols} md:${mdGridCols} lg:grid-cols-1 w-full items-center justify-items-center gap-5 mb-20`
 
   return (
     <section className='mt-10'>
-      {steamId === exampleId && <p className='text-lg text-gray-400 mb-4'>This is example data, use your Steam ID to see your runs.</p>}
+      {steamId === exampleId && <p className='text-center sm:text-start text-lg text-gray-400 mb-4'>This is example data, use your Steam ID to see your runs.</p>}
       {gameList.length > 0
         ? <div className={style}>
           {gameList.map((game: Game) => {

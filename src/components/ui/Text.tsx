@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface TextProps {
     children: string
     className?: string
